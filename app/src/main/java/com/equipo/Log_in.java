@@ -100,8 +100,7 @@ public class Log_in extends AppCompatActivity {
                             SessionManager sessionManager = new SessionManager(Log_in.this, SessionManager.SESSION_USERSESSION);
                             sessionManager.createLoginSession(_NumeroDeCelular, "", "");
                         }
-                        startActivity(new Intent(Log_in.this, MainActivity.class)
-                                /*.putExtra("Token", token)*/);
+                        startActivity(new Intent(Log_in.this, MainActivity.class));
                         finish();
                     } else {
                         Toast.makeText(Log_in.this, "Contraseña Incorrecta", Toast.LENGTH_SHORT).show();
