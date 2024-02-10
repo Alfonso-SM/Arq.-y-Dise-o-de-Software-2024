@@ -17,6 +17,7 @@ import androidx.biometric.BiometricManager;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
 
+import com.equipo.SignUp.SignUp;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -66,8 +67,8 @@ public class Log_in extends AppCompatActivity {
     }
 
     public void callSignup(View view) {
-      //  Intent intent = new Intent(Log_in.this, SignUp.class).putExtra("token", token);
-      //  startActivity(intent);
+        Intent intent = new Intent(Log_in.this, SignUp.class);
+        startActivity(intent);
     }
 
     public void LoginNext(View view) {
