@@ -83,7 +83,7 @@ public class Log_in extends AppCompatActivity {
         String _NumeroDeCelular = NumeroDeCelular.getEditText().getText().toString().trim();
         String _password = password.getEditText().getText().toString().trim();
         // DataBase
-        Query checkUser = FirebaseDatabase.getInstance().getReference("Usuarios").child(_NumeroDeCelular);
+        Query checkUser = FirebaseDatabase.getInstance().getReference("Users").child(_NumeroDeCelular);
         checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -99,7 +99,7 @@ public class Log_in extends AppCompatActivity {
                         ///////////////////////////////////   Pasar al la siguiente pagina
                         if (!new SessionManager(Log_in.this, SessionManager.SESSION_USERSESSION).checkLogin()) {
                             SessionManager sessionManager = new SessionManager(Log_in.this, SessionManager.SESSION_USERSESSION);
-                            sessionManager.createLoginSession(_NumeroDeCelular, "", "");
+                            sessionManager.createLoginSession(_NumeroDeCelular);
                         }
                         startActivity(new Intent(Log_in.this, MainActivity.class));
                         finish();

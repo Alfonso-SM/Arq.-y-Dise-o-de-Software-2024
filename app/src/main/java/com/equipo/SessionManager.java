@@ -19,8 +19,6 @@ public class SessionManager {
     // User Session variables
     private static final String IS_LOGIN = "false";
     public static final String KEY_PHONENO = "PhoneNo";
-    public static final String KEY_LASTCARNAME = "lastname";
-    public static final String KEY_LASTCARCODE = "lastcode";
 
 
 
@@ -32,19 +30,15 @@ public class SessionManager {
     }
 
 
-    public void createLoginSession( String phoneNo,String lastCarName , String lastCarCode) {
+    public void createLoginSession( String phoneNo) {
         editor.putBoolean(IS_LOGIN, true);
         editor.putString(KEY_PHONENO,phoneNo);
-        editor.putString(KEY_LASTCARNAME,lastCarName);
-        editor.putString(KEY_LASTCARCODE,lastCarCode);
-        editor.commit();
+        editor.commit();s
     }
 
     public HashMap<String, String> getUsersDetailFromSession() {
         HashMap<String, String> userData = new HashMap<String, String>();
         userData.put(KEY_PHONENO, usersSession.getString(KEY_PHONENO, null));
-        userData.put(KEY_LASTCARNAME, usersSession.getString(KEY_LASTCARNAME, null));
-        userData.put(KEY_LASTCARCODE, usersSession.getString(KEY_LASTCARCODE, null));
         return userData;
     }
 
