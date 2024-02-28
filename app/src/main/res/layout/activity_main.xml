@@ -57,7 +57,7 @@
           android:id="@+id/signup_username"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:hint="apodo"
+          android:hint="alergias"
           style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
           app:hintTextColor="?attr/colorOnSecondary"
           android:textColorHint="?attr/colorOnSecondary"
@@ -152,8 +152,7 @@
         android:background="@drawable/curveo_botones"
         android:textColor="?attr/colorOnSecondary"
         android:elevation="5dp"
-        android:text="siguiente"
-        android:onClick="CallNextSignUpScreen"
+        android:text="Editar"
 
         android:transitionName="transition_Next"/>
 
