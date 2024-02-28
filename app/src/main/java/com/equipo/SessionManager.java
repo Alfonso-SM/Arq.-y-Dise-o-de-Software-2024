@@ -33,7 +33,7 @@ public class SessionManager {
     public void createLoginSession( String phoneNo) {
         editor.putBoolean(IS_LOGIN, true);
         editor.putString(KEY_PHONENO,phoneNo);
-        editor.commit();s
+        editor.commit();
     }
 
     public HashMap<String, String> getUsersDetailFromSession() {
