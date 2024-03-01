@@ -49,7 +49,7 @@ public class Log_in extends AppCompatActivity {
         phoneNumberEdit = findViewById(R.id.SignIn_PhoneNo_Text);
         passwordEdit = findViewById(R.id.SignIn_Password_Text);
         /////// Tomar el token de notificacion
-        /*
+
         SessionManager sessionManager = new SessionManager(Log_in.this, SessionManager.SESSION_USERSESSION);
         if (sessionManager.checkLogin()) {
             HashMap<String, String> phone = sessionManager.getUsersDetailFromSession();
@@ -61,8 +61,8 @@ public class Log_in extends AppCompatActivity {
                         .setSubtitle("Autenticate utilizando el sensor biometrico")
                         .setAllowedAuthenticators(BiometricManager.Authenticators.BIOMETRIC_STRONG | BiometricManager.Authenticators.DEVICE_CREDENTIAL).build();
                 autenticate();
-            }
-        }*/
+            }*/
+        }
 
     }
 
