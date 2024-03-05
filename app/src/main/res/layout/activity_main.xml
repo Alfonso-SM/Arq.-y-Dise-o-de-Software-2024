@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorSecondaryVariant"
-    tools:context=".SignUp.SignUp"
+    tools:context="RecordHistory"
     android:padding="30dp">
 
 
@@ -18,22 +18,22 @@
         android:id="@+id/Title_signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="monospace"
-        android:text="HISTORICO"
+        android:text="Historial Medico"
         android:textAllCaps="true"
         android:textColor="?attr/colorOnSecondary"
-        android:textSize="40sp"
+        android:textSize="15sp"
         android:transitionName="transition_Text" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="80dp">
+        android:layout_marginTop="50dp">
 
       <com.google.android.material.textfield.TextInputLayout
-          android:id="@+id/signup_fullname"
+          android:id="@+id/fullname"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:hint="nombre_completo"
@@ -50,109 +50,135 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="text"/>
-
-
       </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="edad"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:hintTextColor="?attr/colorOnSecondary"
+            android:textColorHint="?attr/colorOnSecondary"
+            app:startIconTint="?attr/colorOnSecondary"
+            app:startIconDrawable="@drawable/aver"
+            app:endIconMode="clear_text"
+            app:boxStrokeWidthFocused="2dp"
+            app:boxStrokeColor="?attr/colorOnSecondary"
+            app:endIconTint="?attr/colorOnSecondary">
+          <com.google.android.material.textfield.TextInputEditText
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
       <com.google.android.material.textfield.TextInputLayout
-          android:id="@+id/signup_username"
+          android:id="@+id/civil_status"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:hint="alergias"
+          android:hint="estado civil"
           style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
           app:hintTextColor="?attr/colorOnSecondary"
           android:textColorHint="?attr/colorOnSecondary"
           app:startIconTint="?attr/colorOnSecondary"
-          app:startIconDrawable="@drawable/username"
+          app:startIconDrawable="@drawable/aver"
           app:endIconMode="clear_text"
-          app:endIconTint="?attr/colorOnSecondary"
           app:boxStrokeWidthFocused="2dp"
-          app:boxStrokeColor="?attr/colorOnSecondary">
-
+          app:boxStrokeColor="?attr/colorOnSecondary"
+          app:endIconTint="?attr/colorOnSecondary">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="text" />
-
-
+            android:inputType="text"/>
       </com.google.android.material.textfield.TextInputLayout>
       <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/nationality"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:id="@+id/signup_email"
-          android:hint="email"
+          android:hint="nacionalidad"
           style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
           app:hintTextColor="?attr/colorOnSecondary"
           android:textColorHint="?attr/colorOnSecondary"
-          app:startIconDrawable="@drawable/email"
           app:startIconTint="?attr/colorOnSecondary"
+          app:startIconDrawable="@drawable/aver"
           app:endIconMode="clear_text"
-          app:endIconTint="?attr/colorOnSecondary"
           app:boxStrokeWidthFocused="2dp"
-          app:boxStrokeColor="?attr/colorOnSecondary">
+          app:boxStrokeColor="?attr/colorOnSecondary"
+          app:endIconTint="?attr/colorOnSecondary">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="textEmailAddress"/>
-
-
+            android:inputType="text"/>
       </com.google.android.material.textfield.TextInputLayout>
       <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/dob"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:id="@+id/signup_password"
-          android:hint="contra"
-          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-          app:hintTextColor="?attr/colorOnSecondary"
-          app:startIconTint="?attr/colorOnSecondary"
-          android:textColorHint="?attr/colorOnSecondary"
-          app:passwordToggleEnabled="true"
-          app:passwordToggleTint="?attr/colorOnSecondary"
-          app:endIconTint="?attr/colorOnSecondary"
-          app:startIconDrawable="@drawable/password"
-          app:boxStrokeWidthFocused="2dp"
-          app:boxStrokeColor="?attr/colorOnSecondary">
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="textPassword"/>
-
-
-      </com.google.android.material.textfield.TextInputLayout>
-      <com.google.android.material.textfield.TextInputLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:id="@+id/signup_password2"
-          android:hint="Contra_conf"
+          android:hint="fecha de nacimiento"
           style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
           app:hintTextColor="?attr/colorOnSecondary"
           android:textColorHint="?attr/colorOnSecondary"
           app:startIconTint="?attr/colorOnSecondary"
-          app:passwordToggleEnabled="true"
-          app:passwordToggleTint="?attr/colorOnSecondary"
-          app:endIconTint="?attr/colorOnSecondary"
-          app:startIconDrawable="@drawable/password"
+          app:startIconDrawable="@drawable/aver"
+          app:endIconMode="clear_text"
           app:boxStrokeWidthFocused="2dp"
-          app:boxStrokeColor="?attr/colorOnSecondary">
+          app:boxStrokeColor="?attr/colorOnSecondary"
+          app:endIconTint="?attr/colorOnSecondary">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="textPassword"/>
+            android:inputType="text"/>
       </com.google.android.material.textfield.TextInputLayout>
-
-
-
+      <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/diseases"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="enfermedades"
+          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+          app:hintTextColor="?attr/colorOnSecondary"
+          android:textColorHint="?attr/colorOnSecondary"
+          app:startIconTint="?attr/colorOnSecondary"
+          app:startIconDrawable="@drawable/aver"
+          app:endIconMode="clear_text"
+          app:boxStrokeWidthFocused="2dp"
+          app:boxStrokeColor="?attr/colorOnSecondary"
+          app:endIconTint="?attr/colorOnSecondary">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textMultiLine"/>
+      </com.google.android.material.textfield.TextInputLayout>
+      <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/notes"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="antecedentes personales"
+          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+          app:hintTextColor="?attr/colorOnSecondary"
+          android:textColorHint="?attr/colorOnSecondary"
+          app:startIconTint="?attr/colorOnSecondary"
+          app:startIconDrawable="@drawable/aver"
+          app:endIconMode="clear_text"
+          app:boxStrokeWidthFocused="2dp"
+          app:boxStrokeColor="?attr/colorOnSecondary"
+          app:endIconTint="?attr/colorOnSecondary">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textMultiLine"/>
+      </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
 
     <Button
-        android:id="@+id/signup_next_button"
+        android:id="@+id/save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/curveo_botones"
         android:textColor="?attr/colorOnSecondary"
         android:elevation="5dp"
-        android:text="Editar"
+        android:text="Guardar"
+        android:onClick="saveMedicalRecord"
         android:transitionName="transition_Next"/>
 
 
