@@ -97,10 +97,10 @@ public class Log_in extends AppCompatActivity {
                         /////////////////////////////////// Tomar informacion del usuario desde Firebase
 
                         ///////////////////////////////////   Pasar al la siguiente pagina
-                      //  if (!new SessionManager(Log_in.this, SessionManager.SESSION_USERSESSION).checkLogin()) {
+                        if (!new SessionManager(Log_in.this, SessionManager.SESSION_USERSESSION).checkLogin()) {
                             SessionManager sessionManager = new SessionManager(Log_in.this, SessionManager.SESSION_USERSESSION);
                             sessionManager.createLoginSession(_NumeroDeCelular);
-                      //  }
+                        }
                         startActivity(new Intent(Log_in.this, RecordHistory.class));
                         finish();
                     } else {
