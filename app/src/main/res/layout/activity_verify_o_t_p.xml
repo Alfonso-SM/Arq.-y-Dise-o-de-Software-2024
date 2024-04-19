@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorOnPrimary"
+    android:background="?attr/colorSecondaryVariant"
     tools:context=".SignUp.VerifyOTP">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="?attr/colorOnPrimary"
+        android:background="?attr/colorSecondaryVariant"
         android:padding="30dp">
 
         <RelativeLayout
@@ -40,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             
-            android:text="co_di_go"
+            android:text="NUMERO"
             android:textColor="?attr/colorOnSecondary"
             android:textSize="70sp"
             android:textAllCaps="true"
@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
-            android:text="ingrese_numero_unico_de_verificaci_n"
+            android:text="ingrese numero unico de verificacion"
             android:textAlignment="center"
             android:includeFontPadding="false"
             android:textColor="?attr/colorOnSecondary"
@@ -89,13 +89,13 @@
 
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/curveo_botones"
-            android:text="verificar_codigo"
-            android:onClick="callNextScreenFromOTP"
+            android:layout_width="348dp"
+            android:layout_height="92dp"
             android:layout_marginTop="30dp"
-            android:textColor="?attr/colorOnSecondary"/>
+            android:background="@drawable/curveo_botones"
+            android:onClick="callNextScreenFromOTP"
+            android:text="verificar codigo"
+            android:textColor="?attr/colorOnSecondary" />
     </LinearLayout>
 
 </ScrollView>

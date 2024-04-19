@@ -77,7 +77,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Num"
+                android:hint="Numero de celular"
                 android:textColorHint="?attr/colorOnSecondary"
                 app:boxStrokeColor="?attr/colorOnSecondary"
                 app:boxStrokeWidthFocused="2dp"
