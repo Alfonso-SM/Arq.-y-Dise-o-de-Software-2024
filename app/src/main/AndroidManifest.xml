@@ -26,12 +26,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".Log_in" android:exported="false" />
-        <activity android:name=".MainActivity"  android:exported="false"/>
+        <activity android:name=".FirstScreen"  android:exported="false" android:screenOrientation="portrait"/>
         <activity android:name=".SignUp.VerifyOTP" />
         <activity android:name=".SignUp.SignUp3" />
         <activity android:name=".SignUp.SignUp2" />
         <activity android:name=".SignUp.SignUp" />
-        <activity android:name=".RecordHistory" android:exported="false" />
     </application>
 
 </manifest>

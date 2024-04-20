@@ -23,12 +23,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.725" />
 
-    <TextView
+    <ImageView
         android:id="@+id/text_TOP"
+        android:src="@drawable/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
-        android:text="Primer entrega"
         android:textAlignment="center"
         android:textColor="#00E5FF"
         android:textSize="50sp"

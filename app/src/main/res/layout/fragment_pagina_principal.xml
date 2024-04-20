@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="?attr/colorSecondaryVariant"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragmentos.pagina_principal">
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/Refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="30dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/Title_signup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="monospace"
+                    android:text="Historial Medico"
+                    android:textAllCaps="true"
+                    android:textColor="?attr/colorOnSecondary"
+                    android:textSize="25sp"
+                    android:transitionName="transition_Text" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="50dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/fullname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="nombre_completo"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:hintTextColor="?attr/colorOnSecondary"
+                        android:textColorHint="?attr/colorOnSecondary"
+                        app:startIconTint="?attr/colorOnSecondary"
+                        app:startIconDrawable="@drawable/aver"
+                        app:endIconMode="clear_text"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:boxStrokeColor="?attr/colorOnSecondary"
+                        app:endIconTint="?attr/colorOnSecondary">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="text"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/age"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="edad"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:hintTextColor="?attr/colorOnSecondary"
+                        android:textColorHint="?attr/colorOnSecondary"
+                        app:startIconTint="?attr/colorOnSecondary"
+                        app:startIconDrawable="@drawable/aver"
+                        app:endIconMode="clear_text"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:boxStrokeColor="?attr/colorOnSecondary"
+                        app:endIconTint="?attr/colorOnSecondary">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="text"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/civil_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="estado civil"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:hintTextColor="?attr/colorOnSecondary"
+                        android:textColorHint="?attr/colorOnSecondary"
+                        app:startIconTint="?attr/colorOnSecondary"
+                        app:startIconDrawable="@drawable/aver"
+                        app:endIconMode="clear_text"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:boxStrokeColor="?attr/colorOnSecondary"
+                        app:endIconTint="?attr/colorOnSecondary">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="text"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/nationality"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="nacionalidad"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:hintTextColor="?attr/colorOnSecondary"
+                        android:textColorHint="?attr/colorOnSecondary"
+                        app:startIconTint="?attr/colorOnSecondary"
+                        app:startIconDrawable="@drawable/aver"
+                        app:endIconMode="clear_text"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:boxStrokeColor="?attr/colorOnSecondary"
+                        app:endIconTint="?attr/colorOnSecondary">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="text"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/dob"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="fecha de nacimiento"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:hintTextColor="?attr/colorOnSecondary"
+                        android:textColorHint="?attr/colorOnSecondary"
+                        app:startIconTint="?attr/colorOnSecondary"
+                        app:startIconDrawable="@drawable/aver"
+                        app:endIconMode="clear_text"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:boxStrokeColor="?attr/colorOnSecondary"
+                        app:endIconTint="?attr/colorOnSecondary">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="text"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/diseases"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="enfermedades"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:hintTextColor="?attr/colorOnSecondary"
+                        android:textColorHint="?attr/colorOnSecondary"
+                        app:startIconTint="?attr/colorOnSecondary"
+                        app:startIconDrawable="@drawable/aver"
+                        app:endIconMode="clear_text"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:boxStrokeColor="?attr/colorOnSecondary"
+                        app:endIconTint="?attr/colorOnSecondary">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="textMultiLine"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/notes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="antecedentes personales"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:hintTextColor="?attr/colorOnSecondary"
+                        android:textColorHint="?attr/colorOnSecondary"
+                        app:startIconTint="?attr/colorOnSecondary"
+                        app:startIconDrawable="@drawable/aver"
+                        app:endIconMode="clear_text"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:boxStrokeColor="?attr/colorOnSecondary"
+                        app:endIconTint="?attr/colorOnSecondary">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="textMultiLine"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/Save"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/curveo_botones"
+                    android:textColor="?attr/colorOnSecondary"
+                    android:elevation="5dp"
+                    android:text="Guardar"
+                    android:transitionName="transition_Next"/>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</FrameLayout>

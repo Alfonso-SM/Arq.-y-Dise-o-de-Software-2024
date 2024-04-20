@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="id_activityScreenTitles">
+        <item>Close</item>
+        <item>Pagina principal</item>
+        <item>Mi perfil</item>
+        <item>Compartidos conmigo</item>
+        <item/>
+        <item>Salir de sesion</item>
+    </string-array>
+
+    <array name="id_activityScreenIcons">
+        <item>@drawable/close</item>
+        <item>@drawable/home</item>
+        <item>@drawable/username</item>
+        <item>@drawable/shared</item>
+        <item>0</item>
+        <item>@drawable/logout</item>
+    </array>
+</resources>

@@ -11,5 +11,7 @@
         <item name="colorSecondaryVariant">@color/material_dynamic_tertiary10</item>
         <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
+        <item name="android:statusBarColor" >?attr/colorSecondaryVariant</item>
+
     </style>
 </resources>

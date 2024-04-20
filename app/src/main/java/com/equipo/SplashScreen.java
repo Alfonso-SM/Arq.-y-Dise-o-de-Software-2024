@@ -1,11 +1,13 @@
 package com.equipo;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +19,8 @@ public class SplashScreen extends AppCompatActivity {
 
     private static int SPLASH_SCREEN = 1000;
     Animation bottomAnim,topAnim;
-    TextView logo_text,first_text;
+    TextView logo_text;
+    ImageView first_text;
 
 
     @Override

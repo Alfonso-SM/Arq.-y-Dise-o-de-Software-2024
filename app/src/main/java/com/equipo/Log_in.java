@@ -101,7 +101,7 @@ public class Log_in extends AppCompatActivity {
                             SessionManager sessionManager = new SessionManager(Log_in.this, SessionManager.SESSION_USERSESSION);
                             sessionManager.createLoginSession(_NumeroDeCelular);
                         }
-                        startActivity(new Intent(Log_in.this, RecordHistory.class));
+                        startActivity(new Intent(Log_in.this, FirstScreen.class));
                         finish();
                     } else {
                         Toast.makeText(Log_in.this, "Contraseña Incorrecta", Toast.LENGTH_SHORT).show();
@@ -161,7 +161,7 @@ public class Log_in extends AppCompatActivity {
                     public void onAuthenticationSucceeded(@NonNull AuthenticationResult result) {
                         super.onAuthenticationSucceeded(result);
                         auth = true;
-                        startActivity(new Intent(Log_in.this, MainActivity.class));
+                        startActivity(new Intent(Log_in.this, FirstScreen.class));
                         finish();
                     }
                 }).authenticate(promptInfo);

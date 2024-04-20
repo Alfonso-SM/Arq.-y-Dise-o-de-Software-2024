@@ -46,4 +46,7 @@ dependencies {
     implementation 'com.hbb20:ccp:2.3.1'
     //OTP Pin View Desgin
     implementation 'com.chaos.view:pinview:1.4.3'
+    // Navigation Drawer
+    implementation 'com.yarolegovich:sliding-root-nav:1.1.1'
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
 }

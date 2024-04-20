@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorOnPrimary"
+    tools:context="Fragmentos.fragment2">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorOnPrimary"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="?attr/colorSecondaryVariant"
+                android:padding="10dp">
+
+
+                <TextView
+                    android:id="@+id/Profile_fullname1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="208dp"
+                    android:layout_marginTop="109dp"
+                    android:layout_marginEnd="203dp"
+                    android:fontFamily="cursive"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:textSize="40sp" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Profile_Nombre"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="nombre completo"
+                    android:textColorHint="?attr/colorOnSecondary"
+                    app:boxStrokeColor="?attr/colorOnSecondary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Profile_Nombre_completo1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/username"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="?attr/colorOnSecondary"
+                        android:textColor="?attr/colorOnSecondary" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Profile_Email"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="email"
+                    android:textColorHint="?attr/colorOnSecondary"
+                    app:boxStrokeColor="?attr/colorOnSecondary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Profile_Email_edit1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/email"
+                        android:drawableEnd="@drawable/close"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="?attr/colorOnSecondary"
+                        android:enabled="false"
+                        android:textColor="?attr/colorOnSecondary" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Profile_Numero"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Numero de celular"
+                    android:textColorHint="?attr/colorOnSecondary"
+                    app:boxStrokeColor="?attr/colorOnSecondary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Profile_Numero_Edit1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/phone"
+                        android:drawableEnd="@drawable/close"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="?attr/colorOnSecondary"
+                        android:enabled="false"
+                        android:textColor="?attr/colorOnSecondary" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/curveo_botones"
+                    android:elevation="6dp"
+                    app:cardCornerRadius="80dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="sans-serif-black"
+                        android:gravity="center"
+                        android:text="actualizar información"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/Update"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/curveo_botones" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>
