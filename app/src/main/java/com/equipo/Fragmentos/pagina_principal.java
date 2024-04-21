@@ -1,11 +1,14 @@
 package com.equipo.Fragmentos;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,19 +16,33 @@ import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.equipo.FirstScreen;
+import com.equipo.R;
 import com.equipo.SessionManager;
 import com.equipo.dto.ClinicHistory;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.equipo.R;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.itextpdf.kernel.geom.PageSize;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Paragraph;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 
 
 public class pagina_principal extends Fragment {
     TextInputLayout fullname, age, civilStatus, nationality,dob,diseases,notes;
-    Button Save;
+    Button Save,Share;
+    private FirebaseStorage firebaseStorage;
     //
     SwipeRefreshLayout refreshLayout;
     //////////////   RV Prueba Promociones
@@ -42,10 +59,16 @@ public class pagina_principal extends Fragment {
         diseases = view.findViewById(R.id.diseases);
         notes = view.findViewById(R.id.notes);
         Save = view.findViewById(R.id.Save);
+        Share = view.findViewById(R.id.Share);
         refreshLayout = view.findViewById(R.id.Refresh);
 
         Save.setOnClickListener(v -> {
             saveMedicalRecord(view);
+        });
+
+        Share.setOnClickListener(v -> {
+            //Aqui deberias de crear el pdf y luego mandar el File a la funcion de
+            //UploadToFirebase()
         });
 
         return view;
@@ -90,4 +113,17 @@ public class pagina_principal extends Fragment {
         });
 
     }
+    public void UploadToFirebase(File file){
+        //Por el momento esto solo lo va a compartir con el usuario 1 y contraseña 1
+        firebaseStorage = FirebaseStorage.getInstance();
+        StorageReference myUserImageStorageRef = firebaseStorage.getReference("Users").child("1")
+                .child("Historial_Clinico.pdf");
+        UploadTask uploadTask = myUserImageStorageRef.putFile(Uri.fromFile(file));
+        uploadTask.addOnSuccessListener(taskSnapshot -> {
+            Toast.makeText(getActivity(), "PDF Compartido exitoso", Toast.LENGTH_SHORT).show();
+        }).addOnFailureListener(e -> {
+            Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+        });
+    }
+
 }

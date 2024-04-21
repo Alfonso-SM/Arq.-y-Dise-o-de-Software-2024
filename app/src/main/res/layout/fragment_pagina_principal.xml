@@ -192,6 +192,16 @@
                     android:text="Guardar"
                     android:transitionName="transition_Next"/>
 
+                <Button
+                    android:id="@+id/Share"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/curveo_botones"
+                    android:textColor="?attr/colorOnSecondary"
+                    android:elevation="5dp"
+                    android:text="Compartir"/>
+
 
             </LinearLayout>
 
