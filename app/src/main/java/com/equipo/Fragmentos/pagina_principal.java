@@ -1,14 +1,15 @@
 package com.equipo.Fragmentos;
 
 import android.content.Intent;
-import android.content.pm.PackageManager;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,24 +20,22 @@ import com.equipo.FirstScreen;
 import com.equipo.R;
 import com.equipo.SessionManager;
 import com.equipo.dto.ClinicHistory;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.itextpdf.kernel.geom.PageSize;
-import com.itextpdf.kernel.pdf.PdfDocument;
-import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Paragraph;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
+import android.os.Environment;
+import android.widget.Toast;
 
 
 public class pagina_principal extends Fragment {
@@ -67,11 +66,41 @@ public class pagina_principal extends Fragment {
         });
 
         Share.setOnClickListener(v -> {
-            //Aqui deberias de crear el pdf y luego mandar el File a la funcion de
-            //UploadToFirebase()
+            UploadToFirebase();
         });
 
+        loadUserInfo();
         return view;
+    }
+
+    private void loadUserInfo() {
+
+        SessionManager sessionManager = new SessionManager(getActivity(), SessionManager.SESSION_USERSESSION);
+        HashMap<String, String> userDetails = sessionManager.getUsersDetailFromSession();
+        String phoneNo = userDetails.getOrDefault(SessionManager.KEY_PHONENO, "");
+
+        FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
+        DatabaseReference user = rootNode.getReference("Users").child(phoneNo);
+        user.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                ClinicHistory clinicHistory = dataSnapshot.child("clinic_history").getValue(ClinicHistory.class);
+                setTextInputLayoutValue(fullname,clinicHistory.getFullname());
+                setTextInputLayoutValue(age, String.valueOf(clinicHistory.getAge()));
+                setTextInputLayoutValue(civilStatus,clinicHistory.getCivilStatus());
+                setTextInputLayoutValue(nationality,clinicHistory.getNationality());
+                setTextInputLayoutValue(dob,clinicHistory.getDob());
+                setTextInputLayoutValue(diseases,clinicHistory.getDiseases());
+                setTextInputLayoutValue(notes,clinicHistory.getNotes());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     public void saveMedicalRecord(View view) {
@@ -102,6 +131,11 @@ public class pagina_principal extends Fragment {
         return component.getEditText().getText().toString().trim();
     }
 
+    private void setTextInputLayoutValue(TextInputLayout component, String value) {
+
+        component.getEditText().setText(value);
+    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -113,12 +147,16 @@ public class pagina_principal extends Fragment {
         });
 
     }
-    public void UploadToFirebase(File file){
+    public void UploadToFirebase(){
         //Por el momento esto solo lo va a compartir con el usuario 1 y contraseña 1
         firebaseStorage = FirebaseStorage.getInstance();
-        StorageReference myUserImageStorageRef = firebaseStorage.getReference("Users").child("1")
+        SessionManager sessionManager = new SessionManager(getActivity(), SessionManager.SESSION_USERSESSION);
+        HashMap<String, String> userDetails = sessionManager.getUsersDetailFromSession();
+        String phoneNo = userDetails.getOrDefault(SessionManager.KEY_PHONENO, "");
+        StorageReference myUserImageStorageRef = firebaseStorage.getReference("Users").child(phoneNo)
                 .child("Historial_Clinico.pdf");
-        UploadTask uploadTask = myUserImageStorageRef.putFile(Uri.fromFile(file));
+
+        UploadTask uploadTask = myUserImageStorageRef.putFile(Uri.fromFile(generatePDF()));
         uploadTask.addOnSuccessListener(taskSnapshot -> {
             Toast.makeText(getActivity(), "PDF Compartido exitoso", Toast.LENGTH_SHORT).show();
         }).addOnFailureListener(e -> {
@@ -126,4 +164,34 @@ public class pagina_principal extends Fragment {
         });
     }
 
+    private File generatePDF() {
+
+       // String extstoragedir = Environment.getExternalStorageDirectory().toString();
+        File fol = getContext().getCacheDir();
+        File folder=new File(fol,"pdf");
+        if(!folder.exists()) {
+            boolean bool = folder.mkdir();
+        }
+        try {
+            final File file = new File(folder, "sample.pdf");
+            file.createNewFile();
+            FileOutputStream fOut = new FileOutputStream(file);
+
+            PdfDocument document = new PdfDocument();
+            PdfDocument.PageInfo pageInfo = new
+                    PdfDocument.PageInfo.Builder(100, 100, 1).create();
+            PdfDocument.Page page = document.startPage(pageInfo);
+            Canvas canvas = page.getCanvas();
+            Paint paint = new Paint();
+
+            canvas.drawText("data", 10, 10, paint);
+
+            document.finishPage(page);
+            document.writeTo(fOut);
+            document.close();
+            return file;
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
 }

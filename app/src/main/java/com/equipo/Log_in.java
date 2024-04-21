@@ -119,6 +119,7 @@ public class Log_in extends AppCompatActivity {
             }
         });
 
+
     }
 
     private boolean validateFields() {
