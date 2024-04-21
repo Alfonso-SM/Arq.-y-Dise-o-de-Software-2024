@@ -184,7 +184,13 @@ public class pagina_principal extends Fragment {
             Canvas canvas = page.getCanvas();
             Paint paint = new Paint();
 
-            canvas.drawText("data", 10, 10, paint);
+            canvas.drawText("Nombre: " + getTextInputLayoutValue(fullname), 10, 10, paint);
+            canvas.drawText("Edad: " + getTextInputLayoutValue(age), 10, 20, paint);
+            canvas.drawText("Estado Civil: " + getTextInputLayoutValue(civilStatus), 10, 30, paint);
+            canvas.drawText("Nacionalidad: " + getTextInputLayoutValue(nationality), 10, 40, paint);
+            canvas.drawText("Fecha de Nacimiento: " + getTextInputLayoutValue(dob), 10, 50, paint);
+            canvas.drawText("Enfermedades :" + getTextInputLayoutValue(diseases), 10, 60, paint);
+            canvas.drawText("Notas: " + getTextInputLayoutValue(notes), 10, 70, paint);
 
             document.finishPage(page);
             document.writeTo(fOut);
