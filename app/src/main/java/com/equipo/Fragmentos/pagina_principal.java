@@ -156,12 +156,19 @@ public class pagina_principal extends Fragment {
         StorageReference myUserImageStorageRef = firebaseStorage.getReference("Users").child(phoneNo)
                 .child("Historial_Clinico.pdf");
 
-        UploadTask uploadTask = myUserImageStorageRef.putFile(Uri.fromFile(generatePDF()));
+        File pdf = generatePDF();
+        UploadTask uploadTask = myUserImageStorageRef.putFile(Uri.fromFile(pdf));
         uploadTask.addOnSuccessListener(taskSnapshot -> {
             Toast.makeText(getActivity(), "PDF Compartido exitoso", Toast.LENGTH_SHORT).show();
         }).addOnFailureListener(e -> {
             Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
         });
+
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_STREAM, pdf);
+        shareIntent.setType("application/pdf");
+        startActivity(Intent.createChooser(shareIntent, null));
     }
 
     private File generatePDF() {
